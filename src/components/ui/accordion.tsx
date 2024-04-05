@@ -31,7 +31,7 @@ const Accordion = ({ title, children, className }: Props) => {
           {isOpen ? icons.minus : icons.plus}
         </span>
       </button>
-      {isOpen && <div className="p-4">{children}</div>}
+      {isOpen && <div className="flex flex-col pt-4 gap-5">{children}</div>}
     </div>
   );
 };

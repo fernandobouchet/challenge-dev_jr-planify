@@ -1,4 +1,5 @@
 import { Accordion } from "@components/ui/accordion";
+import { ServiceCard } from "@components/ui/serviceCard";
 import { sortByCategory } from "@utils/functions";
 import services from "@utils/services.json";
 
@@ -8,11 +9,15 @@ const Home = () => {
   return (
     <div className="p-5">
       <header>
-        <div className="border p-4">
+        <div className="border border-gray-500 p-4">
           <h3>Categories</h3>
           <div className="flex flex-col gap-2 mt-2">
             {categories.map((e) => (
-              <Accordion key={e.id} id={e.id} title={e.category}></Accordion>
+              <Accordion key={e.id} id={e.id} title={e.category}>
+                {e.services.map((service) => (
+                  <ServiceCard key={service.id} service={service} />
+                ))}
+              </Accordion>
             ))}
           </div>
         </div>
