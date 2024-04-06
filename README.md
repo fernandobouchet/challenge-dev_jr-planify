@@ -18,7 +18,7 @@
     A web application to select and confirm appointents, and manage confirmed appointments.
     <br />
     <br />
-    <a href="https://challenge-dev-jr-planify.vercel.app/"><strong>View Demo »</strong></a>
+    <a href="https://challenge-dev-jr-planify.vercel.app/" target="_blank"><strong>View Demo »</strong></a>
     <br />
   </p>
 </div>
@@ -90,8 +90,6 @@ Project Link: [https://github.com/fernandobouchet/challenge-dev_jr-planify](http
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/othneildrew
 [product-screenshot]: https://lopsided-cymbal-502.notion.site/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F1d7049f6-d896-4891-9b3a-dab7e77463f3%2Fd5aac712-9365-4fb9-adba-b38cd202ba62%2FUntitled.png?table=block&id=11fe9209-d2e5-40f7-9cea-f7c0e4be039c&spaceId=1d7049f6-d896-4891-9b3a-dab7e77463f3&width=2000&userId=&cache=v2
 [React.js]: https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB
 [React-url]: https://reactjs.org/
