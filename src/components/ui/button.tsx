@@ -4,16 +4,22 @@ interface Props {
   children: ReactNode;
   onClick?: () => void;
   className?: string;
+  disabled?: boolean;
 }
 
-const Button = ({ onClick, className, children }: Props) => {
+const Button = ({ onClick, className, children, disabled }: Props) => {
   return (
-    <div
-      className={`bg-gray-500 text-white p-1 hover:bg-gray-600 cursor-pointer ${className}`}
+    <button
+      disabled={disabled}
+      className={`px-2 py-1 w-fit ${
+        disabled
+          ? "bg-gray-100 text-gray-300"
+          : "bg-gray-500 text-white hover:bg-gray-600 cursor-pointer"
+      } ${className}`}
       onClick={onClick}
     >
       {children}
-    </div>
+    </button>
   );
 };
 
