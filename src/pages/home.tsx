@@ -4,6 +4,7 @@ import { TimeSelectorWrapper } from "@components/time/timeSelectorWrapper";
 import { SelectionNavigation } from "@components/selectionNavigation";
 import { useSelectionServiceStatus } from "@hooks/useSelectionServiceStatus";
 import { useUserServices } from "@hooks/useUserServices";
+import ProgressBar from "@components/progressBar";
 
 const Home = () => {
   const { currentService } = useUserServices();
@@ -11,7 +12,8 @@ const Home = () => {
     useSelectionServiceStatus();
 
   return (
-    <main className="text-sm lg:text-base">
+    <main className="text-sm lg:text-base text-gray-700">
+      <ProgressBar status={serviceSelectionStatus} />
       {serviceSelectionStatus === "CATEGORY" ? (
         <CategoriesSelectorWrapper />
       ) : serviceSelectionStatus === "TIME" ? (
