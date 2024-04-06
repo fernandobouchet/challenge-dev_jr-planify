@@ -1,37 +1,16 @@
-import { ReactNode, useState } from "react";
-import { icons } from "@components/icons";
+import { ReactNode } from "react";
 
 interface Props {
-  id: number;
   title: string;
-  children?: ReactNode;
   className?: string;
+  children: ReactNode[];
 }
 
-const Accordion = ({ title, children, className }: Props) => {
-  const [isOpen, setIsOpen] = useState<boolean>(false);
-
-  const toggleAccordion = () => {
-    setIsOpen(!isOpen);
-  };
-
+const Accordion = ({ title, className, children }: Props) => {
   return (
-    <div className={`mb-1 gap-5 ${className}`}>
-      <button
-        className="w-full p-2 text-left bg-gray-200  
-                 hover:bg-gray-300 transition duration-300"
-        onClick={toggleAccordion}
-      >
-        {title}
-        <span
-          className={`float-right transform ${
-            isOpen ? "rotate-180" : "rotate-0"
-          } transition-transform duration-300`}
-        >
-          {isOpen ? icons.minus : icons.plus}
-        </span>
-      </button>
-      {isOpen && <div className="flex flex-col pt-4 gap-5">{children}</div>}
+    <div className={`border border-gray-500 p-4 ${className} `}>
+      <h2>{title}</h2>
+      <div className="flex flex-col gap-2 mt-2">{children}</div>
     </div>
   );
 };

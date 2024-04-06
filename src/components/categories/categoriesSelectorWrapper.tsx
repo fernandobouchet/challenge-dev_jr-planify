@@ -1,26 +1,41 @@
 import { CategoriesArray } from "@types";
 import { Accordion } from "@components/ui/accordion";
 import { ServiceCard } from "@components/categories/serviceCard";
+import { AccordionItem } from "@components/ui/accordionItem";
+import { useState } from "react";
 
 interface Props {
   categories: CategoriesArray;
 }
 
 const CategoriesSelectorWrapper = ({ categories }: Props) => {
+  const [openId, setOpenId] = useState<null | number>(null);
+
+  const toggleAccordion = (accordionItemId: number) => {
+    if (accordionItemId !== openId) {
+      setOpenId(accordionItemId);
+    } else {
+      setOpenId(null);
+    }
+  };
+
   return (
     <section className="p-5">
-      <div className="border border-gray-500 p-4">
-        <h2>Categories</h2>
-        <div className="flex flex-col gap-2 mt-2">
-          {categories.map((e) => (
-            <Accordion key={e.id} id={e.id} title={e.category}>
-              {e.services.map((service) => (
-                <ServiceCard key={service.id} service={service} />
-              ))}
-            </Accordion>
-          ))}
-        </div>
-      </div>
+      <Accordion title={"Categories"}>
+        {categories.map((e) => (
+          <AccordionItem
+            key={e.id}
+            id={e.id}
+            title={e.category}
+            openId={openId}
+            onClick={() => toggleAccordion(e.id)}
+          >
+            {e.services.map((service) => (
+              <ServiceCard key={service.id} service={service} />
+            ))}
+          </AccordionItem>
+        ))}
+      </Accordion>
     </section>
   );
 };
