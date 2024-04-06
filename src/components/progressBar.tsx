@@ -17,7 +17,7 @@ const ProgressBar = ({ status }: Props) => {
       <h3 className="font-medium">{title}</h3>
       <div className="h-5 bg-gray-300 rounded-sm">
         <div
-          className={`bg-emerald-400 h-full ${
+          className={`bg-emerald-400 h-full transition-width duration-500 ${
             status === "CATEGORY"
               ? "w-[25%]"
               : status === "TIME"
