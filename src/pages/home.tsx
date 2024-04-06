@@ -19,7 +19,7 @@ const Home = () => {
       ) : (
         <ConfirmationWrapper />
       )}
-      <section className="flex flex-col h-full justify-end">
+      <section className="flex flex-col justify-end bg-white z-10">
         {currentService && (
           <SelectionNavigation
             serviceSelectionStatus={serviceSelectionStatus}

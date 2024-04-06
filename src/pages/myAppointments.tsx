@@ -1,5 +1,5 @@
 const MyAppointments = () => {
-  return <div>MyAppointments</div>;
+  return <main>MyAppointments asas</main>;
 };
 
 export { MyAppointments };
