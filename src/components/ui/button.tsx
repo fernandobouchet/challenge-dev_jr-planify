@@ -11,10 +11,10 @@ const Button = ({ onClick, className, children, disabled }: Props) => {
   return (
     <button
       disabled={disabled}
-      className={`px-2 py-1 w-fit ${
+      className={`px-2 py-1 min-w-24 rounded-sm font-medium ${
         disabled
-          ? "bg-gray-100 text-gray-300"
-          : "bg-gray-500 text-white hover:bg-gray-600 cursor-pointer"
+          ? "bg-neutral-300 text-neutral-100"
+          : "bg-slate-600 text-white hover:bg-slate-700 cursor-pointer"
       } ${className}`}
       onClick={onClick}
     >

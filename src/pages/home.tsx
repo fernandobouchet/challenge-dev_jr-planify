@@ -11,7 +11,7 @@ const Home = () => {
     useSelectionServiceStatus();
 
   return (
-    <main>
+    <main className="text-sm lg:text-base">
       {serviceSelectionStatus === "CATEGORY" ? (
         <CategoriesSelectorWrapper />
       ) : serviceSelectionStatus === "TIME" ? (

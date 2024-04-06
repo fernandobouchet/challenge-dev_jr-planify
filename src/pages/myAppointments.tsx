@@ -1,5 +1,5 @@
 const MyAppointments = () => {
-  return <main>MyAppointments asas</main>;
+  return <main className="text-sm lg:text-base">MyAppointments asas</main>;
 };
 
 export { MyAppointments };

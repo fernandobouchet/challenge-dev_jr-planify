@@ -18,12 +18,12 @@ const AccordionItem = ({
   openId,
   onClick,
 }: Props) => {
-  let isOpen = openId === id;
+  const isOpen = openId === id;
   return (
     <div className={`mb-1 gap-5 ${className} `}>
       <button
-        className="w-full p-2 text-left bg-gray-200  
-                 hover:bg-gray-300 transition duration-300"
+        className="w-full p-2 text-left bg-gray-100  
+                 hover:bg-gray-200 transition duration-300"
         onClick={onClick}
       >
         {title}
@@ -32,7 +32,11 @@ const AccordionItem = ({
             isOpen ? "rotate-180" : "rotate-0"
           } transition-transform duration-300`}
         >
-          {isOpen ? icons.minus : icons.plus}
+          {isOpen ? (
+            <icons.minus className="fill-slate-500" />
+          ) : (
+            <icons.plus className="fill-slate-500" />
+          )}
         </span>
       </button>
       {isOpen && <div className="flex flex-col pt-4 gap-5">{children}</div>}
