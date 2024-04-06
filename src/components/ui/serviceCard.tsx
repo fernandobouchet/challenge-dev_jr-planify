@@ -1,5 +1,5 @@
 import { Service } from "@types";
-import ServiceSelectorButton from "./serviceSelectorButton";
+import { ServiceSelectorButton } from "@components/ui/serviceSelectorButton";
 
 interface Props {
   service: Service;
