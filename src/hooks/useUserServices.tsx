@@ -6,6 +6,7 @@ interface Props {
   toggleSelectedService: (service: Service) => void;
   appointments: Service[];
   saveSelectedSevice: (service: Service) => void;
+  setAppointmentToService: (date: Date, timeSlot: string) => void;
 }
 
 const UserSerivicesContext = createContext<Props>({
@@ -13,6 +14,7 @@ const UserSerivicesContext = createContext<Props>({
   appointments: [],
   toggleSelectedService: () => {},
   saveSelectedSevice: () => {},
+  setAppointmentToService: () => {},
 });
 
 export const ServicesProvider = ({ children }: { children: ReactNode }) => {
@@ -31,6 +33,17 @@ export const ServicesProvider = ({ children }: { children: ReactNode }) => {
     setAppointments([...appointments, service]);
   };
 
+  const setAppointmentToService = (date: Date, timeSlot: string) => {
+    if (!currentService) return;
+    setCurrentService({
+      ...currentService,
+      appointment: {
+        date: date,
+        timeSlot: timeSlot,
+      },
+    });
+  };
+
   return (
     <UserSerivicesContext.Provider
       value={{
@@ -38,6 +51,7 @@ export const ServicesProvider = ({ children }: { children: ReactNode }) => {
         toggleSelectedService,
         appointments,
         saveSelectedSevice,
+        setAppointmentToService,
       }}
     >
       {children}
