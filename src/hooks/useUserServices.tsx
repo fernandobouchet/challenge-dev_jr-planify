@@ -8,6 +8,7 @@ interface Props {
   saveSelectedSevice: (service: Service) => void;
   setAppointmentToService: (date: string, timeSlot: string) => void;
   saveAppointment: () => void;
+  deleteSavedAppointment: (id: number) => void;
 }
 
 const UserSerivicesContext = createContext<Props>({
@@ -17,6 +18,7 @@ const UserSerivicesContext = createContext<Props>({
   saveSelectedSevice: () => {},
   setAppointmentToService: () => {},
   saveAppointment: () => {},
+  deleteSavedAppointment: () => {},
 });
 
 export const ServicesProvider = ({ children }: { children: ReactNode }) => {
@@ -54,13 +56,28 @@ export const ServicesProvider = ({ children }: { children: ReactNode }) => {
 
   const saveAppointment = () => {
     if (!currentService) return;
-    setAppointments(appointments);
+    setAppointments([...appointments, currentService]);
     savedAppointments.push(currentService);
     localStorage.setItem(
       "saved_appointments",
       JSON.stringify(savedAppointments)
     );
     setCurrentService(null);
+  };
+
+  const deleteSavedAppointment = (id: number) => {
+    const savedAppointment = appointments.find(
+      (appointment) => appointment.id === id
+    );
+    if (!savedAppointment) return;
+    const filteredAppointments = appointments.filter(
+      (appointment) => appointment.id !== id
+    );
+    setAppointments(filteredAppointments);
+    localStorage.setItem(
+      "saved_appointments",
+      JSON.stringify(filteredAppointments)
+    );
   };
 
   return (
@@ -72,6 +89,7 @@ export const ServicesProvider = ({ children }: { children: ReactNode }) => {
         saveSelectedSevice,
         setAppointmentToService,
         saveAppointment,
+        deleteSavedAppointment,
       }}
     >
       {children}
