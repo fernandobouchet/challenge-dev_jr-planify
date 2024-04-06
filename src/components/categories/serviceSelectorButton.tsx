@@ -9,12 +9,18 @@ interface Props {
 const ServiceSelectorButton = ({ service }: Props) => {
   const { currentService, toggleSelectedService } = useUserServices();
 
+  const handleOnClick = () => {
+    toggleSelectedService(service);
+  };
+
   return (
     <Button
       className={`ml-auto ${
-        currentService?.id === service.id ? "bg-gray-600 hover:bg-gray-500" : ""
+        currentService?.id !== service.id
+          ? "bg-slate-500 hover:bg-slate-600"
+          : ""
       }`}
-      onClick={() => toggleSelectedService(service)}
+      onClick={handleOnClick}
     >
       {currentService?.id === service.id ? "Selected" : "Select"}
     </Button>

@@ -14,7 +14,7 @@ const Button = ({ onClick, className, children, disabled }: Props) => {
       className={`px-2 py-1 min-w-24 rounded-sm font-medium ${
         disabled
           ? "bg-neutral-300 text-neutral-100"
-          : "bg-slate-600 text-white hover:bg-slate-700 cursor-pointer"
+          : "bg-slate-600 text-white hover:bg-slate-700 hover:text-white cursor-pointer"
       } ${className}`}
       onClick={onClick}
     >
