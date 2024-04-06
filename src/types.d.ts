@@ -4,7 +4,7 @@ export type Service = {
   description: string;
   category: string;
   appointment?: {
-    date: Date;
+    date: string;
     timeSlot: string;
   };
 };
