@@ -15,7 +15,9 @@ const MyAppointments = () => {
             ))}
           </div>
         ) : (
-          <p className="mt-5">There are no appointments confirmed yet.</p>
+          <p className="mt-5 text-center">
+            There are no appointments confirmed yet.
+          </p>
         )}
       </section>
     </main>

@@ -22,7 +22,7 @@ const AppointmentsCard = ({ service }: Props) => {
       <p>Date: {`${formattedDate} ${service?.appointment?.timeSlot}`}</p>
       <div className="flex w-full">
         <Button
-          className="bg-red-500 ml-auto hover:bg-red-700"
+          className="!bg-red-500 ml-auto hover:!bg-red-700"
           onClick={handleOnClick}
         >
           Delete
