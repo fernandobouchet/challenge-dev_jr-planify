@@ -12,13 +12,19 @@ const useSelectionServiceStatus = () => {
     if (serviceSelectionStatus === "TIME") {
       setServiceSelectionStatus("CONFIRMATION");
     }
+    if (serviceSelectionStatus === "CONFIRMATION") {
+      setServiceSelectionStatus("SAVED");
+    }
   };
 
   const handleOnClickBack = () => {
     if (serviceSelectionStatus === "TIME") {
       setServiceSelectionStatus("CATEGORY");
     }
-    if (serviceSelectionStatus === "CONFIRMATION") {
+    if (
+      serviceSelectionStatus === "CONFIRMATION" ||
+      serviceSelectionStatus === "SAVED"
+    ) {
       setServiceSelectionStatus("TIME");
     }
   };

@@ -15,4 +15,4 @@ export type CategoriesArray = {
   services: Service[];
 }[];
 
-export type SelectionStatus = "CATEGORY" | "TIME" | "CONFIRMATION";
+export type SelectionStatus = "CATEGORY" | "TIME" | "CONFIRMATION" | "SAVED";
