@@ -7,6 +7,7 @@ interface Props {
   appointments: Service[];
   saveSelectedSevice: (service: Service) => void;
   setAppointmentToService: (date: string, timeSlot: string) => void;
+  saveAppointment: () => void;
 }
 
 const UserSerivicesContext = createContext<Props>({
@@ -15,11 +16,18 @@ const UserSerivicesContext = createContext<Props>({
   toggleSelectedService: () => {},
   saveSelectedSevice: () => {},
   setAppointmentToService: () => {},
+  saveAppointment: () => {},
 });
 
 export const ServicesProvider = ({ children }: { children: ReactNode }) => {
+  const savedAppointmentsJSON = localStorage.getItem("saved_appointments");
+  const savedAppointments = savedAppointmentsJSON
+    ? JSON.parse(savedAppointmentsJSON)
+    : [];
+
   const [currentService, setCurrentService] = useState<Service | null>(null);
-  const [appointments, setAppointments] = useState<Service[]>([]);
+  const [appointments, setAppointments] =
+    useState<Service[]>(savedAppointments);
 
   const toggleSelectedService = (service: Service) => {
     if (currentService?.id !== service.id) {
@@ -44,6 +52,17 @@ export const ServicesProvider = ({ children }: { children: ReactNode }) => {
     });
   };
 
+  const saveAppointment = () => {
+    if (!currentService) return;
+    setAppointments(appointments);
+    savedAppointments.push(currentService);
+    localStorage.setItem(
+      "saved_appointments",
+      JSON.stringify(savedAppointments)
+    );
+    setCurrentService(null);
+  };
+
   return (
     <UserSerivicesContext.Provider
       value={{
@@ -52,6 +71,7 @@ export const ServicesProvider = ({ children }: { children: ReactNode }) => {
         appointments,
         saveSelectedSevice,
         setAppointmentToService,
+        saveAppointment,
       }}
     >
       {children}
