@@ -16,9 +16,7 @@ const ServiceSelectorButton = ({ service }: Props) => {
   return (
     <Button
       className={`ml-auto ${
-        currentService?.id !== service.id
-          ? "bg-slate-500 hover:bg-slate-600"
-          : ""
+        currentService?.id !== service.id && "!bg-slate-500 hover:!bg-slate-600"
       }`}
       onClick={handleOnClick}
     >

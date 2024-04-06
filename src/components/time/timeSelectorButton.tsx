@@ -21,8 +21,8 @@ const TimeSelectorButton = ({ date, slot }: Props) => {
     <Button
       className={`text-center h-8 ${
         isSlotSelected
-          ? "bg-slate-600 text-white"
-          : "bg-gray-300 text-slate-500 "
+          ? "!bg-slate-600 !text-white"
+          : "!bg-gray-300 !text-slate-500"
       }`}
       onClick={handleClick}
     >
