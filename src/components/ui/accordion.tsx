@@ -8,7 +8,7 @@ interface Props {
 
 const Accordion = ({ title, className, children }: Props) => {
   return (
-    <div className={`border border-gray-500 p-4 ${className} `}>
+    <div className={`border border-gray-500 p-4 ${className}`}>
       <h2>{title}</h2>
       <div className="flex flex-col gap-2 mt-2">{children}</div>
     </div>

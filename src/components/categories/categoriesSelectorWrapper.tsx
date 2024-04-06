@@ -19,7 +19,7 @@ const CategoriesSelectorWrapper = () => {
   };
 
   return (
-    <section className="p-5 overflow-y-auto">
+    <section className="section-container">
       <Accordion title={"Categories"}>
         {categories.map((e) => (
           <AccordionItem

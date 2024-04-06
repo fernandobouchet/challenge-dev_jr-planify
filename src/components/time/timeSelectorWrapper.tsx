@@ -8,7 +8,7 @@ const TimeSelectorWrapper = () => {
   const data = slots.filter((item) => item.serviceId === currentService?.id);
 
   return (
-    <section className="p-5">
+    <section className="section-container">
       <h3>Upcoming appointments available</h3>
       {data.length >= 1 ? (
         <div className="flex flex-col items-center">
