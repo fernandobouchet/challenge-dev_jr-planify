@@ -1,14 +1,13 @@
-import { CategoriesArray } from "@types";
 import { Accordion } from "@components/ui/accordion";
 import { ServiceCard } from "@components/categories/serviceCard";
 import { AccordionItem } from "@components/ui/accordionItem";
+import { sortByCategory } from "@utils/functions";
+import services from "@utils/services.json";
 import { useState } from "react";
 
-interface Props {
-  categories: CategoriesArray;
-}
+const CategoriesSelectorWrapper = () => {
+  const categories = sortByCategory(services.services);
 
-const CategoriesSelectorWrapper = ({ categories }: Props) => {
   const [openId, setOpenId] = useState<null | number>(null);
 
   const toggleAccordion = (accordionItemId: number) => {
@@ -40,4 +39,4 @@ const CategoriesSelectorWrapper = ({ categories }: Props) => {
   );
 };
 
-export default CategoriesSelectorWrapper;
+export { CategoriesSelectorWrapper };

@@ -3,6 +3,10 @@ export type Service = {
   name: string;
   description: string;
   category: string;
+  appointment?: {
+    date: Date;
+    timeSlot: string;
+  };
 };
 
 export type CategoriesArray = {
@@ -10,3 +14,5 @@ export type CategoriesArray = {
   id: number;
   services: Service[];
 }[];
+
+export type SelectionStatus = "CATEGORY" | "TIME" | "CONFIRMATION";

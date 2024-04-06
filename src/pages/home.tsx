@@ -1,23 +1,33 @@
-import CategoriesSelectorWrapper from "@components/categories/categoriesSelectorWrapper";
-import { Button } from "@components/ui/button";
+import { CategoriesSelectorWrapper } from "@components/categories/categoriesSelectorWrapper";
+import { ConfirmationWrapper } from "@components/confirm/confirmationWrapper";
+import { TimeSelectorWrapper } from "@components/time/timeSelectorWrapper";
+import { SelectionNavigation } from "@components/selectionNavigation";
+import { useSelectionServiceStatus } from "@hooks/useSelectionServiceStatus";
 import { useUserServices } from "@hooks/useUserServices";
-import { sortByCategory } from "@utils/functions";
-import services from "@utils/services.json";
 
 const Home = () => {
-  const categories = sortByCategory(services.services);
   const { currentService } = useUserServices();
+  const { serviceSelectionStatus, handleOnClickBack, handleOnClickNext } =
+    useSelectionServiceStatus();
 
   return (
     <main>
-      <CategoriesSelectorWrapper categories={categories} />
-      {currentService && (
-        <section className="flex mt-5 p-5 border border-gray-500">
-          <div className="ml-auto">
-            <Button>Next</Button>
-          </div>
-        </section>
+      {serviceSelectionStatus === "CATEGORY" ? (
+        <CategoriesSelectorWrapper />
+      ) : serviceSelectionStatus === "TIME" ? (
+        <TimeSelectorWrapper />
+      ) : (
+        <ConfirmationWrapper />
       )}
+      <section className="flex flex-col h-full justify-end">
+        {currentService && (
+          <SelectionNavigation
+            serviceSelectionStatus={serviceSelectionStatus}
+            handleOnClickBack={handleOnClickBack}
+            handleOnClickNext={handleOnClickNext}
+          />
+        )}
+      </section>
     </main>
   );
 };
