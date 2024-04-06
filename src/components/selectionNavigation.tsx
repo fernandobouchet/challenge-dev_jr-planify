@@ -16,7 +16,7 @@ const SelectionNavigation = ({
   const { currentService } = useUserServices();
 
   return (
-    <section className="flex mt-5 p-5 border border-gray-500">
+    <section className="flex mt-5 p-5 border border-gray-500 fixed w-full bottom-20 h-20">
       <div className="w-full flex justify-between">
         {serviceSelectionStatus !== "CATEGORY" && (
           <Button onClick={handleOnClickBack}>Prev</Button>

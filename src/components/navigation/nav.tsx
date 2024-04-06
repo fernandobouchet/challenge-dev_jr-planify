@@ -6,7 +6,7 @@ const Nav = () => {
   return (
     <>
       <Outlet />
-      <div className="flex justify-center items-center gap-10 h-20 fixed w-full bottom-0 bg-white pt-auto">
+      <nav className="flex justify-center items-center gap-10 h-20 fixed w-full bottom-0 bg-white pt-auto">
         <NavigationLink href="/">
           <icons.coffe className="fill-slate-600 w-10 h-auto" />
           <span className="text-sm lg:text-base text-slate-600">Reserve</span>
@@ -17,7 +17,7 @@ const Nav = () => {
             My appointments
           </span>
         </NavigationLink>
-      </div>
+      </nav>
     </>
   );
 };

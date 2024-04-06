@@ -4,10 +4,10 @@ const ConfirmationWrapper = () => {
   const { currentService } = useUserServices();
 
   return (
-    <div>
+    <section className="p-5">
       {currentService?.name}
       <p>{currentService?.appointment?.timeSlot}</p>
-    </div>
+    </section>
   );
 };
 

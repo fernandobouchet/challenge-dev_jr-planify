@@ -10,8 +10,9 @@ const TimeSelectorWrapper = () => {
   return (
     <section className="p-5">
       <h3>Upcoming appointments available</h3>
-      {data.length >= 1
-        ? data.map((e) => (
+      {data.length >= 1 ? (
+        <div className="flex flex-col items-center">
+          {data.map((e) => (
             <>
               <p>{e.date}</p>
               <div className="grid grid-cols-2 gap-5">
@@ -27,8 +28,11 @@ const TimeSelectorWrapper = () => {
                 ))}
               </div>
             </>
-          ))
-        : "Sorry, there are no appointments available at the moment."}
+          ))}
+        </div>
+      ) : (
+        "Sorry, there are no appointments available at the moment."
+      )}
     </section>
   );
 };
