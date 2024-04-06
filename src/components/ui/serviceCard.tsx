@@ -1,4 +1,5 @@
 import { Service } from "@types";
+import ServiceSelectorButton from "./serviceSelectorButton";
 
 interface Props {
   service: Service;
@@ -9,9 +10,7 @@ const ServiceCard = ({ service }: Props) => {
     <div className="flex flex-col border border-gray-500 p-2">
       <h3>{service.name}</h3>
       <p>{service.description}</p>
-      <button className="bg-gray-500 text-white p-1 ml-auto">
-        Seleccionar
-      </button>
+      <ServiceSelectorButton service={service} />
     </div>
   );
 };
