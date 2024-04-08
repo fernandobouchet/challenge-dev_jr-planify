@@ -76,6 +76,21 @@ This application displays a list of services from which users can select one. Th
    ```
 4. Apply changes with your desired code editor.
 
+### Testing (Using Vitest, React Testing library)
+
+1. Clone the repo (if you didnt already)
+   ```sh
+   git clone https://github.com/fernandobouchet/challenge-dev_jr-planify.git
+   ```
+2. Install NPM packages (if you didnt already)
+   ```sh
+   npm install
+   ```
+3. Run the command and check the results in the terminal
+   ```sh
+   npm run test
+   ```
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- CONTACT -->
